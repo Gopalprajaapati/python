@@ -1,0 +1,146 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Search Results</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            margin: 20px;-->
+<!--        }-->
+<!--        h1, h2 {-->
+<!--            color: #333;-->
+<!--        }-->
+<!--        table {-->
+<!--            width: 100%;-->
+<!--            border-collapse: collapse;-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        th, td {-->
+<!--            padding: 10px;-->
+<!--            text-align: left;-->
+<!--            border: 1px solid #ddd;-->
+<!--        }-->
+<!--        th {-->
+<!--            background-color: #f4f4f4;-->
+<!--        }-->
+<!--        button {-->
+<!--            padding: 10px 15px;-->
+<!--            background-color: #4CAF50;-->
+<!--            color: white;-->
+<!--            border: none;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--        button:hover {-->
+<!--            background-color: #45a049;-->
+<!--        }-->
+<!--        form {-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Search for Keywords</h1>-->
+<!--    <form method="POST">-->
+<!--        <input type="text" name="keyword" placeholder="Enter keyword" required>-->
+<!--        <button type="submit">Search</button>-->
+<!--    </form>-->
+
+<!--    {% if message %}-->
+<!--        <p>{{ message }}</p>-->
+<!--    {% endif %}-->
+
+<!--    <h2>Results</h2>-->
+<!--    {% if not results %}-->
+<!--        <p>No results found for your search.</p>-->
+<!--    {% else %}-->
+<!--        <table>-->
+<!--            <thead>-->
+<!--                <tr>-->
+<!--                    <th>Title</th>-->
+<!--                    <th>Link</th>-->
+<!--                    <th>Website</th>-->
+<!--                    <th>Stars</th>-->
+<!--                    <th>Reviews</th>-->
+<!--                    <th style="padding-right: 70px;">Phone</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                {% for result in results %}-->
+<!--                    <tr>-->
+<!--                        <td>{{ result.title }}</td>-->
+<!--                        <td><a href="{{ result.link }}" target="_blank">Direction</a></td>-->
+<!--                        <td><a href="{{ result.website }}" target="_blank">{{ result.website }}</a></td>-->
+<!--                        <td>{{ result.stars }}</td>-->
+<!--                        <td>{{ result.reviews }}</td>-->
+<!--                        <td >{{ result.phone }}</td>-->
+<!--                    </tr>-->
+<!--                {% endfor %}-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    {% endif %}-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search for Keywords</h1>
+    <form method="POST">
+        <input type="text" name="keyword" placeholder="Enter keyword" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Results</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Website</th>
+                <th>Stars</th>
+                <th>Reviews</th>
+                <th>Phone</th>
+                <th>Facebook</th>
+                <th>Instagram</th>
+                <th>LinkedIn</th>
+                <th>Twitter</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result.title }}</td>
+                    <td><a href="{{ result.link }}" target="_blank">{{ result.link }}</a></td>
+                    <td><a href="{{ result.website }}" target="_blank">{{ result.website }}</a></td>
+                    <td>{{ result.stars }}</td>
+                    <td>{{ result.reviews }}</td>
+                    <td>{{ result.phone }}</td>
+                    <td><a href="{{ result.facebook }}" target="_blank">{{ result.facebook }}</a></td>
+                    <td><a href="{{ result.instagram }}" target="_blank">{{ result.instagram }}</a></td>
+                    <td><a href="{{ result.linkedin }}" target="_blank">{{ result.linkedin }}</a></td>
+                    <td><a href="{{ result.twitter }}" target="_blank">{{ result.twitter }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
